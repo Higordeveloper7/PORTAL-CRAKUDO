@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>PORTAL CRAKUDO</header>
+
+<div class="menu">
+    <button onclick="location.href='/categoria/gamemode'">🎮 GAMEMODES</button>
+    <button onclick="location.href='/categoria/samp'">🧩 SAMP</button>
+    <button onclick="location.href='/categoria/ff'">🔥 FF</button>
+</div>
+
+<form method="POST" action="/add" enctype="multipart/form-data">
+<input name="titulo" placeholder="Título">
+<textarea name="conteudo" placeholder="Conteúdo"></textarea>
+
+<select name="categoria">
+<option value="gamemode">Gamemode</option>
+<option value="samp">SAMP</option>
+<option value="ff">FF</option>
+</select>
+
+<input type="file" name="imagem">
+<input type="file" name="arquivo">
+
+<button>POSTAR</button>
+</form>
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+    <a href="/">🏠<br>Home</a>
+
+    {% if user %}
+        <a href="/admin">⚙️<br>Admin</a>
+        <a href="/logout">🚪<br>Sair</a>
+    {% else %}
+        <a href="/login">🔐<br>Login</a>
+        <a href="/cadastro">🆕<br>Conta</a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

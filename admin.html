@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1 style="text-align:center;">PAINEL ADMIN 🔥</h1>
+
+<h2>📦 POSTS</h2>
+
+{% for p in posts %}
+<div class="card">
+
+    <h3>{{p[1]}}</h3>
+    <p>{{p[2]}}</p>
+
+    {% if p[5] == 1 %}
+        <span style="color:lime;">ATIVO</span>
+        <a href="/bloquear/{{p[0]}}">🚫 Bloquear</a>
+    {% else %}
+        <span style="color:red;">BLOQUEADO</span>
+        <a href="/desbloquear/{{p[0]}}">✅ Liberar</a>
+    {% endif %}
+
+    | <a href="/delete/{{p[0]}}">🗑 Deletar</a>
+
+</div>
+{% endfor %}
+
+<hr>
+
+<h2>👤 USUÁRIOS</h2>
+
+{% for u in users %}
+<div class="card">
+    {{u[0]}}
+    <a href="/delete_user/{{u[0]}}">❌ Excluir</a>
+</div>
+{% endfor %}
+
+</body>
+</html>

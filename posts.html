@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header>{{cat}}</header>
+
+{% for p in posts %}
+<div class="card">
+    <h3>{{p[0]}}</h3>
+    <p>{{p[1]}}</p>
+
+    {% if p[3] %}
+        <img src="/static/uploads/{{p[3]}}">
+    {% endif %}
+
+    {% if p[4] %}
+        <a href="/static/files/{{p[4]}}" download>⬇️ BAIXAR</a>
+    {% endif %}
+</div>
+{% endfor %}
+
+<div class="navbar">
+    <a href="/">🏠<br>Home</a>
+</div>
+
+</body>
+</html>
